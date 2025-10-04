@@ -16,7 +16,7 @@ from django.conf import settings
 
 
 # Create your views here.
-
+#email notification on login to specific user
 def user_login(request):
     if request.method == "POST":
         username = request.POST.get("username")
@@ -24,12 +24,10 @@ def user_login(request):
 
         user = authenticate(request, username=username, password=password)
         if user:
-            # Generate OTP
             otp = str(random.randint(1000, 9999))
             request.session["otp"] = otp
             request.session["user_id"] = user.id
 
-            # Send OTP via email
             send_mail(
                 subject="Your Login OTP",
                 message=f"Hello {user.username},\nYour OTP is {otp}.",
@@ -52,7 +50,6 @@ def verify_otp(request):
             user = CustomUser.objects.get(id=user_id)
             login(request, user)
 
-            # Clear session OTP
             request.session.pop("otp", None)
             request.session.pop("user_id", None)
 
@@ -61,7 +58,7 @@ def verify_otp(request):
             return HttpResponse("Invalid OTP ❌")
 
     return render(request, "accounts/verify_otp.html")
-
+#register
 def register(request):
     if request.method=='POST':
         username=request.POST['username']
@@ -87,7 +84,8 @@ def user_logout(request):
 def authors_and_sellers(request):
     users = CustomUser.objects.filter(public_visibility=True) & (CustomUser.objects.exclude(id=request.user.id))
     return render(request, "accounts/authors_sellers.html", {"users": users})
-
+    
+#file upload mechanism
 def upload_book(request):
     if not request.user.is_authenticated:
         return redirect('login')
@@ -113,13 +111,15 @@ def upload_book(request):
     
     return render(request, "accounts/Upload_Books.html")
 
-
+#dashboard to view all registered user
+    
 def show_books(request, user_id):
     user = CustomUser.objects.get(id=user_id)
     books = UploadedFile.objects.filter(user=user, visibility=True)
     return render(request, "accounts/user_books.html", {"books": books, "user": user})
 
 # postgresql Database Connection 
+    
 def connect_db(request):
     with engine.connect() as conn:
         result = conn.execute(text("SELECT * FROM emp"))
@@ -133,7 +133,8 @@ def connect_db(request):
     html += "</ul>"
     return HttpResponse(html)
 
-# MySQL Database Connection 
+# try to connect MySQL Database 
+    
 def connect_mysql_db(request):
     df= pd.read_sql_table("student", engine1,columns=["name"])
     print(df)
@@ -151,7 +152,7 @@ def connect_mysql_db(request):
 
     except Exception as e:
         return HttpResponse(f"Error: {str(e)}")
-
+#create api to login and fetch uploaded files , here i use postman to genrate token and fetch only his uploaded files
 class UserFilesView(ModelViewSet):
     permission_classes = [AllowAny]  # only logged-in users
     serializer_class = UserFileSerializer
@@ -160,10 +161,9 @@ class UserFilesView(ModelViewSet):
     
     def perform_create(self, serializer):
         serializer.save(user=self.request.user)
-
+#use of wrappers and redirect urls
 @check_uploaded_files
 def user_files_dashboard(request):
     files = UploadedFile.objects.filter(user=request.user)
     return render(request, 'accounts/user_books.html', {'files': files})
 
-#
