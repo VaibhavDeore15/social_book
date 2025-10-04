@@ -41,6 +41,8 @@ def user_login(request):
 
 
 def verify_otp(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     if request.method == "POST":
         otp_entered = request.POST.get("otp")
         otp_session = request.session.get("otp")
@@ -56,18 +58,19 @@ def verify_otp(request):
             return redirect("authors_sellers")
         else:
             return HttpResponse("Invalid OTP ❌")
+    data=CustomUser.objects.get(id=request.session.get("user_id"))
+    return render(request, "accounts/verify_otp.html",{"email": data.email})
 
-    return render(request, "accounts/verify_otp.html")
-#register
 def register(request):
     if request.method=='POST':
         username=request.POST['username']
         email=request.POST['email']
+        public_visibility=request.POST.get('public_visibility') == 'True'
         password=request.POST['password']
         password1=request.POST['password1']
         if password != password1:
             return HttpResponse("Password Mismatch")    
-        CustomUser.objects.create_user(username=username, password=password, email=email)
+        CustomUser.objects.create_user(username=username, password=password, email=email, public_visibility=public_visibility)
         return redirect('login')
     return render(request,'accounts/register.html')
 
@@ -82,11 +85,15 @@ def user_logout(request):
     return redirect('login')    
 
 def authors_and_sellers(request):
+    if not request.user.is_authenticated:
+        return redirect('login')
     users = CustomUser.objects.filter(public_visibility=True) & (CustomUser.objects.exclude(id=request.user.id))
     return render(request, "accounts/authors_sellers.html", {"users": users})
     
 #file upload mechanism
 def upload_book(request):
+    if not request.user.is_authenticated:
+        return redirect('login') 
     if not request.user.is_authenticated:
         return redirect('login')
     
@@ -114,6 +121,8 @@ def upload_book(request):
 #dashboard to view all registered user
     
 def show_books(request, user_id):
+    if not request.user.is_authenticated:
+        return redirect('login')    
     user = CustomUser.objects.get(id=user_id)
     books = UploadedFile.objects.filter(user=user, visibility=True)
     return render(request, "accounts/user_books.html", {"books": books, "user": user})
@@ -164,6 +173,8 @@ class UserFilesView(ModelViewSet):
 #use of wrappers and redirect urls
 @check_uploaded_files
 def user_files_dashboard(request):
+    if not request.user.is_authenticated:
+        return redirect('login')    
     files = UploadedFile.objects.filter(user=request.user)
     return render(request, 'accounts/user_books.html', {'files': files})
 

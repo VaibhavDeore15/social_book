@@ -143,6 +143,8 @@
       <input type="text" name="email" placeholder="Enter Your Email" required>
       <input type="password" name="password" placeholder="Enter Your Password" required>
       <input type="password" name="password1" placeholder="Conform Your Password" required>
+      <input type="radio" name="public_visibility" value="True" checked> Public
+      <input type="radio" name="public_visibility" value="False"> Private
       <button type="submit"><i class="fas fa-arrow-right"></i> Register</button>
     </form>
     <p class="message">Already have an account? <a href="{% url "login" %}">Login here</a></p>
