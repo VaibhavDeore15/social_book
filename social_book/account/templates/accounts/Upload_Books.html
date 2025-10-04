@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Upload Books</title>
+    
+    <!-- Font Awesome -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <style>
+      body {
+        background: linear-gradient(135deg, #26ace1ff, #fcdf25ff);
+        font-family: Arial, sans-serif;
+        color: #fff;
+        margin: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .form-container {
+        background: rgba(0, 0, 0, 0.6);
+        padding: 30px;
+        border-radius: 12px;
+        box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 500px;
+        text-align: center;
+      }
+
+      .form-container h2 {
+        margin-bottom: 10px;
+        font-size: 26px;
+        color: #fcd82a;
+      }
+
+      .form-container p {
+        margin-bottom: 20px;
+        font-size: 15px;
+        color: #f1f1f1;
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      input, select, textarea {
+        padding: 12px;
+        border: none;
+        border-radius: 8px;
+        outline: none;
+        font-size: 14px;
+      }
+
+      input[type="file"] {
+        background: #fff;
+        color: #000;
+      }
+
+      button {
+        padding: 12px;
+        background-color: #00bfff;
+        border: none;
+        border-radius: 8px;
+        color: #fff;
+        font-size: 16px;
+        cursor: pointer;
+        transition: background 0.3s ease;
+      }
+
+      button:hover {
+        background-color: #009acd;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="form-container">
+      <h2><i class="fas fa-upload"></i> Upload Books <i class="fas fa-book"></i></h2>
+      <p>Upload your books here</p>
+
+      <form method="POST" enctype="multipart/form-data">
+        {% csrf_token %}
+        <input type="text" name="title" placeholder="Book Title" required />
+        <textarea name="description" placeholder="Book Description" rows="3" required></textarea>
+        <select name="visibility" required>
+          <option value="">-- Select Visibility --</option>
+          <option value="True">Public</option>
+          <option value="False">Private</option>
+        </select>
+        <input type="number" name="cost" placeholder="Cost" min="0" required />
+        <input type="number" name="year_of_publication" placeholder="Year of Publication" min="1900" max="2099" required />
+        <input type="file" name="file" accept=".pdf,.jpeg,.jpg" required />
+        <button type="submit"><i class="fas fa-cloud-upload-alt"></i> Upload</button>
+      </form>
+    </div>
+  </body>
+</html>

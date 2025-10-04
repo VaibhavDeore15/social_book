@@ -1,0 +1,130 @@
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Books</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+    <style>
+        body {
+            background: linear-gradient(135deg, #26ace1ff, #fcdf25ff);
+            font-family: Arial, sans-serif;
+            color: #fff;
+            margin: 0;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .hero h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+        .hero p {
+            font-size: 18px;
+            color: #f1f1f1;
+        }
+        .books-container {
+            background: rgba(0, 0, 0, 0.6);
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 500px;
+            text-align: center;
+        }
+        .books-container h2 {
+            margin-bottom: 20px;
+            font-size: 26px;
+            color: #fcd82a;
+        }
+        .book-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+        .book-list li {
+            background: rgba(255,255,255,0.1);
+            margin-bottom: 12px;
+            padding: 15px;
+            border-radius: 8px;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .book-title {
+            font-weight: bold;
+            font-size: 18px;
+        }
+        .book-author {
+            font-size: 15px;
+            color: #fcd82a;
+        }
+        .no-books {
+            color: #fcd82a;
+            font-size: 18px;
+            margin-top: 20px;
+        }
+        .dashboard-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 28px;
+            background: #fcd82a;
+            color: #222;
+            border: none;
+            border-radius: 6px;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+            text-decoration: none;
+            transition: background 0.2s;
+        }
+        .dashboard-btn:hover {
+            background: #ffe066;
+        }
+    </style>
+</head>
+<body>
+    <div class="hero">
+        <h1>Your Books</h1>
+        <p>Here are the books you have added to your account.</p>
+    </div>
+    <div class="books-container">
+        <h2>Book List</h2>
+        {% if files %}
+            <table class="book-list" style="width:100%; border-collapse:collapse;">
+            <thead>
+                <tr style="background:rgba(255,255,255,0.15);">
+                <th style="padding:10px; color:#fcd82a; text-align:left;">Title</th>
+                <th style="padding:10px; color:#fcd82a; text-align:left;">Visibility</th>
+                <th style="padding:10px; color:#fcd82a; text-align:left;">Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for book in files %}
+                <tr>
+                <td style="padding:10px;" class="book-title">{{ book.title }}</td>
+                <td style="padding:10px;" class="book-author">
+                    {% if book.visibility %}
+                    Public
+                    {% else %}
+                    Private
+                    {% endif %}
+                </td>
+                <td style="padding:10px;" class="book-author">₹ {{ book.cost }}</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+            </table>
+        {% endif %}
+        <a href="{% url 'authors_sellers' %}" class="dashboard-btn">
+            <i class="fas fa-arrow-left"></i> Return to Dashboard
+        </a>
+    </div>
+</body>
+</html>

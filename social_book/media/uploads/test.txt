@@ -1,0 +1,227 @@
+WAQTD all the details of the employees
+
+WAQTD employee number, name, job, and salary
+
+WAQTD the unique job roles
+
+WAQTD the employees working as ‘CLERK’
+
+WAQTD the employees whose salary is more than 3000
+
+WAQTD the employees who are not managers
+
+WAQTD the employees whose salary is between 2000 and 5000
+
+WAQTD the employees whose job is either ‘CLERK’ or ‘SALESMAN’
+
+WAQTD the employees whose name starts with ‘S’
+
+WAQTD the employees whose name ends with ‘H’
+
+WAQTD the employees whose name contains letter ‘A’
+
+WAQTD the employees whose salary is not between 2000 and 5000
+
+WAQTD the employees who joined before 01-JAN-1982
+
+WAQTD the employees whose commission is null
+
+WAQTD the employees whose commission is not null
+
+WAQTD the employees with job as ‘CLERK’ and salary more than 1000
+
+WAQTD the employees who are either ‘MANAGER’ or ‘CLERK’ and salary less than 3000
+
+WAQTD the employees whose name is exactly 5 characters
+
+WAQTD the employees whose job is not ‘CLERK’, ‘SALESMAN’, or ‘MANAGER’
+
+WAQTD the employees whose name has second letter ‘A’
+
+WAQTD the employees who joined in the year 1981
+
+WAQTD the employees in department number 10
+
+WAQTD the highest salary among employees
+
+WAQTD the lowest salary among employees
+
+WAQTD the total salary paid to all employees
+
+WAQTD the average salary of employees
+
+WAQTD the number of employees in each job role
+
+WAQTD the total salary for each job role
+
+WAQTD the highest salary for each department
+
+WAQTD the number of employees in each department
+
+WAQTD job and max sal of emp in each job if the max sal exceeds 2600
+
+WAQTD the salaries which are repeated in emp table
+
+WAQTD the hiredate which are duplicated in emp table
+
+WAQTD avg salary of each dept if avg sal is less than 3000
+
+WAQTD deptno if there are at least 3 emp in each dept whose name has char 'A' or 'S'
+
+WAQTD min and max salaries of each job if min sal is more than 1000 and max sal is less than 5000
+
+WAQTD DNO and number of emp working in each dept if there are at least 2 clerks in each dept
+
+WAQTD DNO and total salary needed to pay all emp in each dept if there are at least 4 emp in each dept
+
+WAQTD number of emp earning sal more than 1200 in each job and the total sal needed to pay emp of each job must exceed 3800
+
+WAQTD DEPTNO and number of emp working only if there are 2 emp working in each dept as manager
+
+WAQTD job and max sal of emp in each job if the max sal exceeds 2600
+
+WAQTD the salaries which are repeated in emp table
+
+WAQTD the hiredate which are duplicated in emp table
+
+WAQTD avg salary of each dept if avg sal is less than 3000
+
+WAQTD deptno if there are at least 3 emp in each dept whose name has char 'A' or 'S'
+
+WAQTD min and max salaries of each job if min sal is more than 1000 and max sal is less than 5000
+
+WAQTD name of the employees earning more than ADAMS
+
+WAQTD name and salary of the employees earning less than KING
+
+WAQTD name and deptno of the employees if they are working in the same dept as JONES
+
+WAQTD name and job of all the employees working in the same designation as JAMES
+
+WAQTD empno and ename along with annual salary of all the employees if their annual salary is greater than WARD’s annual salary
+
+WAQTD name and hiredate of the employees if they are hired before SCOTT and hired after the PRESIDENT
+
+WAQTD name and sal of the employee if they are earning sal less than the employee whose empno is 7839
+
+WAQTD all the details of the employees if the employees are hired before MILLER
+
+WAQTD ename and empno of the employees if employees are earning more than ALLEN
+
+WAQTD ename and salary of all the employees who are earning more than MILLER but less than ALLEN
+
+WAQTD all the details of the employees working in dept 20 and working in the same designation as SMITH
+
+WAQTD all the details of the employees working as manager in the same dept as TURNER
+
+WAQTD name and hiredate of the employees hired after 1980 and before KING
+
+WAQTD all the details of employees who earn more than SCOTT but less than KING
+
+WAQTD name of the employees whose name starts with 'A' and works in the same dept as BLAKE
+
+WAQTD name and comm if employees earn commission and work in the same designation as SMITH
+
+WAQTD details of all the employees working as clerk in the same dept as TURNER
+
+WAQTD ename, sal and designation of the employees whose annual salary is more than SMITH and less than KING
+
+WAQTD dname of the employees whose name is SMITH
+
+WAQTD dname and loc of the employee whose ename is KING
+
+WAQTD loc of the emp whose employee number is 7902
+
+WAQTD dname and loc along with deptno of the employee whose name ends with 'R'
+
+WAQTD dname of the employee whose designation is PRESIDENT
+
+WAQTD names of the employees working in Accounting department
+
+WAQTD ename and salaries of the employees who are working in the location CHICAGO
+
+WAQTD details of the employees working in Sales
+
+WAQTD details of the emp along with annual salary if employees are working in NEW YORK
+
+WAQTD names of employees working in Operations department
+
+WAQTD names of the employees earning more than SCOTT in Accounting dept
+
+WAQTD details of the employees working as manager in the location CHICAGO
+
+WAQTD name and sal of the employees earning more than KING in the dept Accounting
+
+WAQTD details of the employees working as salesman in the department Sales
+
+WAQTD name, sal, job, hiredate of the employees working in Operations department and hired before KING
+
+Display all the employees whose department names end with 'S'
+
+WAQTD dname of the employees whose names has character 'A' in it
+
+WAQTD dname and loc of the employees whose salary is rupees 800
+
+WAQTD dname of the employees who earn commission
+
+WAQTD loc of the employees if they earn commission in dept 40
+
+🧠 Assignment on Types of Subquery
+WAQTD name of the employees earning salary more than the salesman
+
+WAQTD details of the employees hired after all the clerks
+
+WAQTD name and hiredate of employees hired before all the managers
+
+WAQTD names of the employees hired after all the managers and earning salary more than all the clerks
+
+WAQTD details of the employees working as clerk and hired before at least a salesman
+
+WAQTD details of employees working in Accounting or Sales dept
+
+WAQTD department names of the employees with name SMITH, KING and MILLER
+
+WAQTD details of employees working in NEW YORK or CHICAGO
+
+WAQTD emp names if employees are hired after all the employees of dept 10
+
+🧠 Assignment on Nested Subquery
+WAQTD 2nd minimum salary
+
+WAQTD 5th maximum salary
+
+WAQTD name of the employee earning 3rd maximum salary
+
+WAQTD empno of the employee earning 2nd maximum salary
+
+WAQTD department name of an employee getting 4th max sal
+
+WAQTD details of the employee who was hired 2nd
+
+WAQTD name of the employee hired before the last employee
+
+WAQTD loc of the employee who was hired first
+
+WAQTD details of the employee earning 7th minimum salary
+
+WAQTD dname of employee getting 2nd maximum salary
+
+WAQTD SMITH’s reporting manager’s name
+
+WAQTD ADAMS manager’s manager name
+
+WAQTD dname of JONES’s manager
+
+WAQTD MILLER’s manager’s salary
+
+WAQTD loc of SMITH’s manager’s manager
+
+WAQTD dname of the employees reporting to BLAKE
+
+WAQTD number of employees reporting to KING
+
+WAQTD details of the employees reporting to JONES
+
+WAQTD enames of the employees reporting to BLAKE’s manager
+
+WAQTD number of employees reporting to FORD’s manager
